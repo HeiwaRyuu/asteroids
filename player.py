@@ -29,7 +29,7 @@ class Player(CircleShape):
 
     def update(self, dt):
         keys = pygame.key.get_pressed()
-        self.shot_cooldown += 2
+        self.shot_cooldown += dt
 
         # Rotation
         if keys[pygame.K_a]:
