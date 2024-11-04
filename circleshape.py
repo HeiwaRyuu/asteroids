@@ -1,4 +1,5 @@
 import pygame
+from constants import *
 
 # Base class for game objects
 class CircleShape(pygame.sprite.Sprite):
@@ -26,6 +27,15 @@ class CircleShape(pygame.sprite.Sprite):
         if center_distance <= (r1+r2):
             return True 
         return False
+
+    def out_of_bounds(self):
+        rect_p1 = (0, 0)
+        rect_p2 = (SCREEN_WIDTH, SCREEN_HEIGHT)
+        within_x = (self.position.x + self.radius) >= rect_p1[0] and (self.position.x - self.radius) <= rect_p2[0]
+        within_y = (self.position.y + self.radius) >= rect_p1[1] and (self.position.y - self.radius) <= rect_p2[1]
+        if within_x and within_y:
+            return False
+        return True
 
 
 def calculate_distance(p1, p2):
