@@ -21,8 +21,9 @@ def main():
                 return
         # Filling up the screen as black
         pygame.Surface.fill(screen,(0,0,0))
+        # Updating player position
+        player.update(dt)
         # Rendering player
-        print(f"Player position: {player.position} | Player velocity: {player.velocity} | Player radius: {player.radius}")
         player.draw(screen)
         # Re-rendegin the screen
         pygame.display.flip()
